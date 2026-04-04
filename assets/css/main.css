@@ -1,55 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("fontawesome-all.min.css");
 
-/*
-    Apoxwear Custom Style
-    Based on Aerial by HTML5 UP
+/* Apoxwear Pro Style - Posicionamiento y Tamaño Ajustado
 */
 
-html, body, div, span, applet, object,
-iframe, h1, h2, h3, h4, h5, h6, p, blockquote,
-pre, a, abbr, acronym, address, big, cite,
-code, del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var, b,
-u, i, center, dl, dt, dd, ol, ul, li, fieldset,
-form, label, legend, table, caption, tbody,
-tfoot, thead, tr, th, td, article, aside,
-canvas, details, embed, figure, figcaption,
-footer, header, hgroup, menu, nav, output, ruby,
-section, summary, time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
-body {
-    line-height: 1;
-    -webkit-text-size-adjust: none;
-    background: #000; /* Fondo negro base para Apox */
-    overflow: hidden;
-}
-
-ol, ul {
-    list-style: none;
-}
+body { line-height: 1; -webkit-text-size-adjust: none; background: #000; overflow: hidden; }
+ol, ul { list-style: none; }
 
 /* Basic */
-
-html {
-    box-sizing: border-box;
-}
-
-*, *:before, *:after {
-    box-sizing: inherit;
-}
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
 
 body, input, select, textarea {
     color: #fff;
@@ -60,24 +26,10 @@ body, input, select, textarea {
     line-height: 1.75em;
 }
 
-a {
-    -moz-transition: border-color 0.2s ease-in-out;
-    -webkit-transition: border-color 0.2s ease-in-out;
-    -ms-transition: border-color 0.2s ease-in-out;
-    transition: border-color 0.2s ease-in-out;
-    border-bottom: none;
-    color: inherit;
-    outline: 0;
-    text-decoration: none;
-}
+a { border-bottom: none; color: inherit; outline: 0; text-decoration: none; transition: all 0.2s; }
 
-/* Icon */
-
-.icon {
-    text-decoration: none;
-    position: relative;
-}
-
+/* Icon Core */
+.icon { text-decoration: none; position: relative; }
 .icon:before {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -90,149 +42,85 @@ a {
     font-family: 'Font Awesome 5 Free';
     font-weight: 400;
 }
+.icon.solid:before { font-weight: 900; }
+.icon.brands:before { font-family: 'Font Awesome 5 Brands'; }
+.icon > .label { display: none; }
 
-.icon > .label {
-    display: none;
-}
+/* Wrapper & BG */
+#wrapper { height: 100%; left: 0; position: fixed; top: 0; width: 100%; animation: fadeIn 2s forwards; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-.icon.solid:before {
-    font-weight: 900;
-}
+#bg { height: 100%; left: 0; position: fixed; top: 0; width: 100%; z-index: -1; background: #000; }
+#bg video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; }
+#overlay { background: url("images/overlay-pattern.png"); height: 100%; left: 0; position: fixed; top: 0; width: 100%; opacity: 0.3; }
 
-.icon.brands:before {
-    font-family: 'Font Awesome 5 Brands';
-}
+/* --- SECCIÓN CRÍTICA: POSICIÓN DE ICONOS --- */
 
-/* Wrapper */
-
-@keyframes wrapper {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-#wrapper {
-    animation: wrapper 2s forwards;
-    height: 100%;
-    left: 0;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-
-/* BG & Video Support */
-
-#bg {
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-    background-color: #000;
-}
-
-#bg video {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translateX(-50%) translateY(-50%);
-    object-fit: cover;
-}
-
-/* Overlay */
-
-#overlay {
-    background-attachment: fixed;
-    background-image: url("images/overlay-pattern.png"); /* Mantiene la textura de puntos */
-    background-position: top left;
-    background-repeat: repeat;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    opacity: 0.5;
-}
-
-/* Main & Header */
-
-#main {
-    height: 100%;
-    left: 0;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    width: 100%;
-}
+#main { height: 100%; width: 100%; text-align: center; }
 
 #header {
     display: inline-block;
+    width: 100%;
+    /* 70vh empuja los iconos casi al final de la pantalla en PC */
+    padding-top: 75vh; 
     position: relative;
-    vertical-align: middle;
-    width: 90%;
-    padding-top: 55vh; /* ESTO BAJA LOS BOTONES AL 55% DE LA PANTALLA */
+    z-index: 10;
 }
 
 #header nav li {
     display: inline-block;
-    margin: 0 0.5em;
+    margin: 0 1em;
     opacity: 0;
-    animation: nav-icons 0.5s ease-in-out forwards;
+    animation: slideUp 0.5s ease-out forwards;
 }
 
-/* Orden de aparición de iconos: Instagram, WhatsApp, Tienda, Correo, TikTok */
-#header nav li:nth-child(1) { animation-delay: 1.0s; }
-#header nav li:nth-child(2) { animation-delay: 1.2s; }
-#header nav li:nth-child(3) { animation-delay: 1.4s; }
-#header nav li:nth-child(4) { animation-delay: 1.6s; }
-#header nav li:nth-child(5) { animation-delay: 1.8s; }
+/* Delays para la animación de entrada */
+#header nav li:nth-child(1) { animation-delay: 0.5s; }
+#header nav li:nth-child(2) { animation-delay: 0.7s; }
+#header nav li:nth-child(3) { animation-delay: 0.9s; }
+#header nav li:nth-child(4) { animation-delay: 1.1s; }
+#header nav li:nth-child(5) { animation-delay: 1.3s; }
 
-@keyframes nav-icons {
-    0% { transform: translateY(1em); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
-}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
+/* Tamaño de los círculos en PC */
 #header nav a:before {
-    transition: all 0.2s ease-in-out;
-    border-radius: 100%;
-    border: solid 1px #fff;
     display: block;
-    font-size: 1.75em;
-    height: 2.5em;
-    line-height: 2.5em;
-    width: 2.5em;
-    text-align: center;
+    width: 2.2em;
+    height: 2.2em;
+    line-height: 2.2em;
+    font-size: 1.8em;
+    border: solid 1px rgba(255,255,255,0.5);
+    border-radius: 100%;
+    transition: all 0.3s;
 }
 
 #header nav a:hover:before {
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255,255,255,0.1);
+    border-color: #fff;
     transform: scale(1.1);
 }
 
 /* Footer */
+#footer { position: absolute; bottom: 20px; width: 100%; text-align: center; font-size: 0.7em; letter-spacing: 0.3em; opacity: 0.5; }
 
-#footer {
-    bottom: 2em;
-    position: absolute;
-    text-align: center;
-    width: 100%;
-    font-size: 0.8em;
-    opacity: 0.6;
-    letter-spacing: 0.2em;
-}
-
-/* Responsive Ajustes */
+/* --- AJUSTES PARA MÓVIL (PANTALLAS PEQUEÑAS) --- */
 
 @media screen and (max-width: 736px) {
     #header {
-        padding-top: 60vh; /* Baja un poco más en móviles */
+        /* Bajamos un poco más el espacio en móvil para no tapar el centro */
+        padding-top: 80vh; 
     }
+
+    #header nav li {
+        margin: 0 0.4em; /* Iconos más juntos en el celular */
+    }
+
     #header nav a:before {
-        font-size: 1.25em;
+        /* AQUÍ REDUCIMOS EL TAMAÑO DE LOS ICONOS PARA MÓVIL */
+        width: 1.8em;
+        height: 1.8em;
+        line-height: 1.8em;
+        font-size: 1.3em; 
     }
 }
