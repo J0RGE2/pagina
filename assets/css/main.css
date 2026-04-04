@@ -61,7 +61,6 @@ a { border-bottom: none; color: inherit; outline: 0; text-decoration: none; tran
 #header {
     display: inline-block;
     width: 100%;
-    /* 70vh empuja los iconos casi al final de la pantalla en PC */
     padding-top: 75vh; 
     position: relative;
     z-index: 10;
@@ -108,19 +107,18 @@ a { border-bottom: none; color: inherit; outline: 0; text-decoration: none; tran
 
 @media screen and (max-width: 736px) {
     #header {
-        /* Bajamos un poco más el espacio en móvil para no tapar el centro */
         padding-top: 80vh; 
     }
 
     #header nav li {
-        margin: 0 0.4em; /* Iconos más juntos en el celular */
+        margin: 0 0.3em; /* Un poco más juntos para que no se amontonen */
     }
 
     #header nav a:before {
-        /* AQUÍ REDUCIMOS EL TAMAÑO DE LOS ICONOS PARA MÓVIL */
-        width: 1.8em;
-        height: 1.8em;
-        line-height: 1.8em;
-        font-size: 1.3em; 
+        /* REDUCCIÓN DE TAMAÑO PARA MÓVIL */
+        width: 1.4em;       /* Antes 1.8em */
+        height: 1.4em;      /* Antes 1.8em */
+        line-height: 1.4em;
+        font-size: 1.1em;   /* Antes 1.3em */
     }
 }
