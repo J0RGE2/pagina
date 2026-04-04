@@ -1,66 +1,74 @@
 <!DOCTYPE HTML>
 <html>
-	<head>
-		<title>Apoxwear | Diseño & Estampado</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css?v=4" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		
-		<style>
-			/* Control de visibilidad de videos según el dispositivo */
-			.video-pc { display: block; }
-			.video-movil { display: none; }
+    <head>
+        <title>Apoxwear | Diseño & Estampado</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="assets/css/main.css?v=5" />
+        <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+        
+        <style>
+            /* Control de visibilidad de videos según el dispositivo */
+            .video-pc { display: block; }
+            .video-movil { display: none; }
 
-			@media screen and (max-width: 736px) {
-				.video-pc { display: none; }
-				.video-movil { display: block; }
-			}
-		</style>
-	</head>
-	<body class="is-preload">
-		<div id="wrapper">
-			
-			<div id="bg">
-				<video class="video-pc" autoplay muted playsinline>
-					<source src="assets/images/fondo-pc.mp4" type="video/mp4">
-				</video>
-				
-				<video class="video-movil" autoplay muted playsinline>
-					<source src="assets/images/fondo-movil.mp4" type="video/mp4">
-				</video>
-			</div>
+            @media screen and (max-width: 736px) {
+                .video-pc { display: none !important; }
+                .video-movil { 
+                    display: block !important; 
+                    object-fit: cover;
+                    width: 100vw;
+                    height: 100vh;
+                }
+            }
+            
+            /* Asegura que el contenedor de fondo sea negro mientras carga */
+            #bg { background-color: #000; }
+        </style>
+    </head>
+    <body class="is-preload">
+        <div id="wrapper">
+            
+            <div id="bg">
+                <video class="video-pc" autoplay muted playsinline preload="none">
+                    <source src="assets/images/fondo-pc.mp4" type="video/mp4">
+                </video>
+                
+                <video class="video-movil" autoplay muted playsinline preload="auto">
+                    <source src="assets/images/fondo-movil.mp4" type="video/mp4">
+                </video>
+            </div>
 
-			<div id="overlay"></div>
-			
-			<div id="main">
+            <div id="overlay"></div>
+            
+            <div id="main">
 
-				<header id="header">
-					<nav>
-						<ul>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							
-							<li><a href="#" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
-							
-							<li><a href="#" class="icon solid fa-shopping-cart"><span class="label">Tienda</span></a></li>
-							
-							<li><a href="mailto:tu-correo@ejemplo.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-							
-							<li><a href="#" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
-						</ul>
-					</nav>
-				</header>
+                <header id="header">
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                            
+                            <li><a href="#" class="icon brands fa-whatsapp"><span class="label">WhatsApp</span></a></li>
+                            
+                            <li><a href="#" class="icon solid fa-shopping-cart"><span class="label">Tienda</span></a></li>
+                            
+                            <li><a href="mailto:tu-correo@ejemplo.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                            
+                            <li><a href="#" class="icon brands fa-tiktok"><span class="label">TikTok</span></a></li>
+                        </ul>
+                    </nav>
+                </header>
 
-				<footer id="footer">
-					<span class="copyright">&copy; APOX</span>
-				</footer>
+                <footer id="footer">
+                    <span class="copyright">&copy; APOX</span>
+                </footer>
 
-			</div>
-		</div>
-		<script>
-			window.onload = function() { document.body.classList.remove('is-preload'); }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
-	</body>
+            </div>
+        </div>
+        <script>
+            window.onload = function() { document.body.classList.remove('is-preload'); }
+            window.ontouchmove = function() { return false; }
+            window.onorientationchange = function() { document.body.scrollTop = 0; }
+        </script>
+    </body>
 </html>
