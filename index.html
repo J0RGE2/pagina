@@ -4,15 +4,30 @@
 		<title>Apoxwear | Diseño & Estampado</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main.css?v=4" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		
+		<style>
+			/* Control de visibilidad de videos según el dispositivo */
+			.video-pc { display: block; }
+			.video-movil { display: none; }
+
+			@media screen and (max-width: 736px) {
+				.video-pc { display: none; }
+				.video-movil { display: block; }
+			}
+		</style>
 	</head>
 	<body class="is-preload">
 		<div id="wrapper">
 			
 			<div id="bg">
-				<video autoplay muted loop playsinline>
-					<source src="assets/images/fondo.mp4" type="video/mp4">
+				<video class="video-pc" autoplay muted playsinline>
+					<source src="assets/images/fondo-pc.mp4" type="video/mp4">
+				</video>
+				
+				<video class="video-movil" autoplay muted playsinline>
+					<source src="assets/images/fondo-movil.mp4" type="video/mp4">
 				</video>
 			</div>
 
