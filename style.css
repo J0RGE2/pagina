@@ -1,6 +1,7 @@
 /* Base de la página (Apoxwear) */
 *:not(i) {
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: #ffffff; /* Texto general en blanco para que resalte en el fondo negro */
 }
 
 html, body {
@@ -9,7 +10,7 @@ html, body {
 }
 
 body {
-    background: #F3F4F8; /* Gris muy claro para un estilo premium */
+    background: #000000; /* Fondo negro absoluto */
 }
 
 /* Contenedor principal de la Galería */
@@ -33,11 +34,11 @@ body {
     flex-direction: column;
     flex-grow: 0;
     flex-shrink: 0;
-    flex-basis: 360px;
+    flex-basis: 360px; /* Ancho de la tarjeta */
     align-items: stretch;
     justify-content: center;
     position: relative;
-    height: 220px;
+    height: 220px; /* Alto de la tarjeta */
     margin-right: 14px;
     margin-bottom: 14px;
 }
@@ -53,7 +54,7 @@ body {
     box-shadow: 0 10px 24px 0px rgba(0,0,0,0.06), 0 8px 20px -2px rgba(0,0,0,0.10), 0 6px 10px -6px rgba(0,0,0,0.20);
     transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
     opacity: 0;
-    z-index: 5; /* Por debajo de las imágenes principales */
+    z-index: 5;
 }
 
 .image-grid__item:hover:before {
@@ -77,37 +78,30 @@ body {
 
 /* === LÓGICA DE INTERCAMBIO DE IMÁGENES === */
 
-/* Estilos comunes para ambas imágenes */
 .grid-item__image-front,
 .grid-item__image-back {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-size: cover;
     background-position: center center;
-    transition: opacity 0.4s ease-in-out; /* Esta es la suavidad del cambio */
+    transition: opacity 0.4s ease-in-out;
     will-change: opacity;
 }
 
-/* Imagen FRONTAL: visible por defecto */
 .grid-item__image-front {
     opacity: 1;
-    z-index: 1; /* La base */
+    z-index: 1;
 }
 
-/* Imagen TRASERA/HOVER: invisible por defecto */
 .grid-item__image-back {
-    opacity: 0; /* Oculta */
-    z-index: 2; /* Sobre la frontal */
+    opacity: 0;
+    z-index: 2;
 }
 
-/* === Efectos al pasar el cursor (Hover) === */
-
-/* La frontal desaparece suavemente */
 .grid-item:hover .grid-item__image-front {
     opacity: 0;
 }
 
-/* La trasera aparece suavemente */
 .grid-item:hover .grid-item__image-back {
     opacity: 1;
 }
