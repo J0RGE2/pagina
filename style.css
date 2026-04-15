@@ -38,7 +38,7 @@ body {
     align-items: stretch;
     justify-content: center;
     position: relative;
-    height: 220px; /* Alto de la tarjeta */
+    height: 420px; /* Alto mayor para mostrar la prenda completa */
     margin-right: 14px;
     margin-bottom: 14px;
 }
@@ -82,8 +82,10 @@ body {
 .grid-item__image-back {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-size: cover;
+    background-size: contain; /* Evita recortes de la imagen */
+    background-repeat: no-repeat;
     background-position: center center;
+    background-color: #0d0d0d;
     transition: opacity 0.4s ease-in-out;
     will-change: opacity;
 }
