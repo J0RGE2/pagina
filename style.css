@@ -1,4 +1,3 @@
-/* ====================== GALERÍA ====================== */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
@@ -10,9 +9,9 @@
     list-style: none;
 }
 
-/* Todas las tarjetas (normales y especial) */
+/* Todas las tarjetas tienen el mismo tamaño base */
 .image-grid__item {
-    flex: 0 0 calc(50% - 8px);
+    flex: 0 0 calc(50% - 8px);     /* 2 columnas en móvil */
     height: 460px;
     position: relative;
     max-width: 380px;
@@ -42,20 +41,20 @@
 }
 
 .plus-icon {
-    font-size: 5.2rem;
+    font-size: 5rem;
     font-weight: 200;
-    margin-bottom: 8px;
-    color: #ffffff;
+    margin-bottom: 10px;
+    color: #fff;
 }
 
 .special-text {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 500;
     margin: 0;
     color: #ccc;
 }
 
-/* ====================== TARJETAS NORMALES ====================== */
+/* ====================== TARJETAS DE IMÁGENES ====================== */
 .grid-item {
     height: 100%;
     position: relative;
@@ -76,15 +75,8 @@
     transition: opacity 0.55s ease-in-out, transform 0.55s ease-in-out;
 }
 
-.grid-item__image-front {
-    opacity: 1;
-    z-index: 1;
-}
-
-.grid-item__image-back {
-    opacity: 0;
-    z-index: 2;
-}
+.grid-item__image-front { opacity: 1; z-index: 1; }
+.grid-item__image-back { opacity: 0; z-index: 2; }
 
 /* Hover en escritorio */
 @media (hover: hover) {
@@ -98,7 +90,7 @@
     }
 }
 
-/* Toque en móviles */
+/* Toque en móvil */
 .grid-item:active .grid-item__image-front,
 .grid-item.touched .grid-item__image-front {
     opacity: 0;
