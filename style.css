@@ -1,4 +1,3 @@
-/* Contenedor principal de la Galería */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
@@ -6,37 +5,63 @@
     justify-content: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 20px 60px;
     list-style: none;
 }
 
-/* Tarjeta individual */
+/* Tarjeta normal */
 .image-grid__item {
-    flex: 0 0 calc(50% - 8px);           /* 2 columnas en móvil por defecto */
-    height: 480px;                        /* Alto razonable */
+    flex: 0 0 calc(50% - 8px);           /* 2 columnas en móvil */
+    height: 460px;
     position: relative;
     max-width: 380px;
 }
 
-/* Sombra sutil */
-.image-grid__item:before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08),
-                0 4px 12px rgba(0,0,0,0.06);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 5;
-    pointer-events: none;
+/* Tarjeta especial */
+.image-grid__item.special-item {
+    height: 460px;
 }
 
-.image-grid__item:hover:before {
-    opacity: 1;
+.special-grid-item {
+    background: #1a1a1a;
+    border: 2px dashed #444;
+    transition: all 0.3s ease;
 }
 
-/* Contenido de la tarjeta */
+.special-grid-item:hover,
+.special-grid-item:active {
+    background: #222;
+    border-color: #666;
+    transform: scale(1.02);
+}
+
+.special-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #ddd;
+    padding: 20px;
+}
+
+.plus-icon {
+    font-size: 4.8rem;
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 16px;
+    color: #fff;
+}
+
+.special-text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin: 0;
+    color: #ccc;
+}
+
+/* ==================== EFECTO DE CAMBIO DE IMAGEN ==================== */
 .grid-item {
     display: flex;
     height: 100%;
@@ -44,9 +69,10 @@
     overflow: hidden;
     text-decoration: none;
     border-radius: 4px;
+    cursor: pointer;                    /* Mejor experiencia táctil */
 }
 
-/* Imágenes front y back */
+/* Imágenes */
 .grid-item__image-front,
 .grid-item__image-back {
     position: absolute;
@@ -55,7 +81,7 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-color: #0d0d0d;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transition: opacity 0.55s ease-in-out, transform 0.55s ease-in-out;
     will-change: opacity, transform;
 }
 
@@ -69,30 +95,43 @@
     z-index: 2;
 }
 
-/* Hover más suave y bonito */
-.grid-item:hover .grid-item__image-front {
+/* Hover en escritorio (mouse) */
+@media (hover: hover) {
+    .grid-item:hover .grid-item__image-front {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+    .grid-item:hover .grid-item__image-back {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+/* Toque en móviles y tablets */
+.grid-item:active .grid-item__image-front,
+.grid-item.touched .grid-item__image-front {
     opacity: 0;
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-.grid-item:hover .grid-item__image-back {
+.grid-item:active .grid-item__image-back,
+.grid-item.touched .grid-item__image-back {
     opacity: 1;
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
-/* ==================== RESPONSIVE ==================== */
-
-/* Tablet: 3 columnas */
+/* Responsive */
 @media (min-width: 768px) {
-    .image-grid__item {
+    .image-grid__item,
+    .image-grid__item.special-item {
         flex: 0 0 calc(33.333% - 11px);
         height: 500px;
     }
 }
 
-/* Escritorio grande: 4 columnas */
 @media (min-width: 1024px) {
-    .image-grid__item {
+    .image-grid__item,
+    .image-grid__item.special-item {
         flex: 0 0 calc(25% - 12px);
         height: 520px;
         max-width: none;
