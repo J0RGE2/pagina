@@ -1,13 +1,10 @@
 /* Contenedor principal de la Galería */
 .image-grid {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    align-content: center;
+    gap: 16px;
     justify-content: center;
-    gap: 14px;                    /* Mejor que margin-right/bottom */
-    max-width: 1200px;            /* Más controlable que 80% */
-    min-height: 100vh;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 40px 20px;
     list-style: none;
@@ -15,23 +12,22 @@
 
 /* Tarjeta individual */
 .image-grid__item {
-    flex: 0 0 360px;              /* Más limpio que flex-basis + grow/shrink */
-    height: 460px;                /* Un poco más alto si quieres mostrar más prenda */
+    flex: 0 0 calc(50% - 8px);           /* 2 columnas en móvil por defecto */
+    height: 480px;                        /* Alto razonable */
     position: relative;
+    max-width: 380px;
 }
 
-/* Sombra en hover */
+/* Sombra sutil */
 .image-grid__item:before {
     content: '';
     position: absolute;
     inset: 0;
-    background: none;
-    border-radius: 3px;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.06),
-                0 8px 20px -2px rgba(0,0,0,0.10),
-                0 6px 10px -6px rgba(0,0,0,0.20);
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08),
+                0 4px 12px rgba(0,0,0,0.06);
     opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.3s ease;
     z-index: 5;
     pointer-events: none;
 }
@@ -40,15 +36,14 @@
     opacity: 1;
 }
 
-/* Contenido interno */
+/* Contenido de la tarjeta */
 .grid-item {
     display: flex;
-    flex-direction: column;
     height: 100%;
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 4px;
 }
 
 /* Imágenes front y back */
@@ -60,8 +55,8 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-color: #0d0d0d;
-    transition: opacity 0.4s ease-in-out;
-    will-change: opacity;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    will-change: opacity, transform;
 }
 
 .grid-item__image-front {
@@ -74,10 +69,32 @@
     z-index: 2;
 }
 
+/* Hover más suave y bonito */
 .grid-item:hover .grid-item__image-front {
     opacity: 0;
+    transform: scale(1.03);
 }
 
 .grid-item:hover .grid-item__image-back {
     opacity: 1;
+    transform: scale(1.03);
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+/* Tablet: 3 columnas */
+@media (min-width: 768px) {
+    .image-grid__item {
+        flex: 0 0 calc(33.333% - 11px);
+        height: 500px;
+    }
+}
+
+/* Escritorio grande: 4 columnas */
+@media (min-width: 1024px) {
+    .image-grid__item {
+        flex: 0 0 calc(25% - 12px);
+        height: 520px;
+        max-width: none;
+    }
 }
