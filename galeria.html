@@ -4,36 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Apoxwear</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
     <style>
-        /* Estilo rápido para el botón de volver */
         .back-link {
             text-decoration: none; 
             color: #fff; 
-            font-family: 'Source Sans Pro', sans-serif; 
+            font-family: sans-serif; 
             font-weight: bold;
-            transition: opacity 0.3s;
+            display: inline-block;
+            margin-bottom: 20px;
         }
-        .back-link:hover {
-            opacity: 0.7;
-        }
-        body {
-            background-color: #000; /* Fondo negro para que combine con el resto de Apox */
-            margin: 0;
-        }
+        body { background-color: #000; margin: 0; color: white; }
     </style>
 </head>
 <body>
 
     <div style="padding: 25px 40px; text-align: left;">
-        <a href="index.html" class="back-link">
-            ← Volver al inicio
-        </a>
+        <a href="index.html" class="back-link"> ← Volver al inicio </a>
     </div>
 
     <ul class="image-grid">
 
-        <li class="image-grid__item special-item">
+        <li class="image-grid__item">
             <a href="#" class="grid-item special-grid-item">
                 <div class="special-content">
                     <div class="plus-icon">+</div>
@@ -51,4 +43,18 @@
         
         <li class="image-grid__item">
             <a href="#" class="grid-item">
-                <div class="grid-item__image-front" style="background-image: url('assets/catalogo/2.jpg')">
+                <div class="grid-item__image-front" style="background-image: url('assets/catalogo/2.jpg')"></div>
+                <div class="grid-item__image-back" style="background-image: url('assets/catalogo/2a.jpg')"></div>
+            </a>
+        </li>
+        
+        <li class="image-grid__item">
+            <a href="#" class="grid-item">
+                <div class="grid-item__image-front" style="background-image: url('assets/catalogo/3.png')"></div>
+                <div class="grid-item__image-back" style="background-image: url('assets/catalogo/3a.png')"></div>
+            </a>
+        </li>
+
+    </ul>
+</body>
+</html>
