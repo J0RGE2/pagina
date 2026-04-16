@@ -1,99 +1,83 @@
-diff --git a/style.css b/style.css
-index 5b34981cd9f8821fc69ae32bcc283efacce14212..611b417123541243c547ee5cc895366e0fc71d63 100644
---- a/style.css
-+++ b/style.css
-@@ -16,92 +16,94 @@ body {
- /* Contenedor principal de la Galería */
- .image-grid {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     align-content: center;
-     align-items: center;
-     justify-content: center;
-     max-width: 80%;
-     min-height: 100vh;
-     margin: 0 auto;
-     padding: 20px 0;
-     list-style: none;
- }
- 
- /* Tarjeta individual de cada diseño */
- .image-grid__item {
-     display: flex;
-     flex-direction: column;
-     flex-grow: 0;
-     flex-shrink: 0;
-     flex-basis: 360px; /* Ancho de la tarjeta */
-     align-items: stretch;
-     justify-content: center;
-     position: relative;
-     height: 420px; /* Alto mayor para mostrar la prenda completa */
-     margin-right: 14px;
-     margin-bottom: 14px;
- }
- 
- /* Sombra sutil de la tarjeta */
- .image-grid__item:before {
-     content: '';
-     visibility: hidden;
-     position: absolute;
-     top: 0; left: 0; right: 0; bottom: 0;
-     background: none;
-     border-radius: 3px;
-     box-shadow: 0 10px 24px 0px rgba(0,0,0,0.06), 0 8px 20px -2px rgba(0,0,0,0.10), 0 6px 10px -6px rgba(0,0,0,0.20);
-     transition: visibility 0.1s ease-out, opacity 0.1s ease-out;
-     opacity: 0;
-     z-index: 5;
- }
- 
- .image-grid__item:hover:before {
-     visibility: visible;
-     opacity: 1;
- }
- 
- /* Contenido interno del Item */
- .grid-item {
-     display: flex;
-     position: relative;
-     flex-direction: column;
-     flex-grow: 1;
-     flex-shrink: 1;
-     align-items: stretch;
-     justify-content: center;
-     text-decoration: none;
-     overflow: hidden;
-     height: 100%;
- }
- 
- /* === LÓGICA DE INTERCAMBIO DE IMÁGENES === */
- 
- .grid-item__image-front,
- .grid-item__image-back {
-     position: absolute;
-     top: 0; left: 0; right: 0; bottom: 0;
-     background-size: contain; /* Evita recortes de la imagen */
-     background-repeat: no-repeat;
-     background-position: center center;
-     background-color: #0d0d0d;
-     transition: opacity 0.4s ease-in-out;
-     will-change: opacity;
- }
- 
- .grid-item__image-front {
-     opacity: 1;
-     z-index: 1;
- }
- 
- .grid-item__image-back {
-     opacity: 0;
-     z-index: 2;
- }
- 
- .grid-item:hover .grid-item__image-front {
-     opacity: 0;
- }
- 
- .grid-item:hover .grid-item__image-back {
-     opacity: 1;
- }
+/* Contenedor principal de la Galería */
+.image-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 14px;                    /* Mejor que margin-right/bottom */
+    max-width: 1200px;            /* Más controlable que 80% */
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 40px 20px;
+    list-style: none;
+}
+
+/* Tarjeta individual */
+.image-grid__item {
+    flex: 0 0 360px;              /* Más limpio que flex-basis + grow/shrink */
+    height: 460px;                /* Un poco más alto si quieres mostrar más prenda */
+    position: relative;
+}
+
+/* Sombra en hover */
+.image-grid__item:before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: none;
+    border-radius: 3px;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06),
+                0 8px 20px -2px rgba(0,0,0,0.10),
+                0 6px 10px -6px rgba(0,0,0,0.20);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.image-grid__item:hover:before {
+    opacity: 1;
+}
+
+/* Contenido interno */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+/* Imágenes front y back */
+.grid-item__image-front,
+.grid-item__image-back {
+    position: absolute;
+    inset: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #0d0d0d;
+    transition: opacity 0.4s ease-in-out;
+    will-change: opacity;
+}
+
+.grid-item__image-front {
+    opacity: 1;
+    z-index: 1;
+}
+
+.grid-item__image-back {
+    opacity: 0;
+    z-index: 2;
+}
+
+.grid-item:hover .grid-item__image-front {
+    opacity: 0;
+}
+
+.grid-item:hover .grid-item__image-back {
+    opacity: 1;
+}
