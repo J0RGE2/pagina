@@ -1,4 +1,4 @@
-/* === CONTENEDOR PRINCIPAL === */
+/* ====================== GALERÍA ====================== */
 .image-grid {
     display: flex;
     flex-wrap: wrap;
@@ -6,11 +6,11 @@
     justify-content: center;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 30px 20px 60px;
+    padding: 30px 20px 80px;
     list-style: none;
 }
 
-/* Tarjetas normales y especiales */
+/* Todas las tarjetas (normales y especial) */
 .image-grid__item {
     flex: 0 0 calc(50% - 8px);
     height: 460px;
@@ -18,11 +18,11 @@
     max-width: 380px;
 }
 
-/* === TARJETA ESPECIAL === */
+/* ====================== TARJETA ESPECIAL ====================== */
 .special-grid-item {
     background: #1a1a1a;
     border: 2px dashed #555;
-    border-radius: 4px;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,7 +32,7 @@
 .special-grid-item:hover,
 .special-grid-item:active {
     background: #222;
-    border-color: #777;
+    border-color: #888;
     transform: scale(1.03);
 }
 
@@ -42,26 +42,26 @@
 }
 
 .plus-icon {
-    font-size: 5rem;
+    font-size: 5.2rem;
     font-weight: 200;
-    margin-bottom: 10px;
-    color: #fff;
+    margin-bottom: 8px;
+    color: #ffffff;
 }
 
 .special-text {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
     font-weight: 500;
     margin: 0;
     color: #ccc;
 }
 
-/* === EFECTO CAMBIO DE IMAGEN (escritorio + móvil) === */
+/* ====================== TARJETAS NORMALES ====================== */
 .grid-item {
     height: 100%;
     position: relative;
     overflow: hidden;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
 }
 
@@ -71,21 +71,34 @@
     inset: 0;
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center center;
     background-color: #0d0d0d;
     transition: opacity 0.55s ease-in-out, transform 0.55s ease-in-out;
 }
 
-.grid-item__image-front { opacity: 1; z-index: 1; }
-.grid-item__image-back { opacity: 0; z-index: 2; }
-
-/* Hover en desktop */
-@media (hover: hover) {
-    .grid-item:hover .grid-item__image-front { opacity: 0; transform: scale(1.04); }
-    .grid-item:hover .grid-item__image-back { opacity: 1; transform: scale(1.04); }
+.grid-item__image-front {
+    opacity: 1;
+    z-index: 1;
 }
 
-/* Toque en móvil */
+.grid-item__image-back {
+    opacity: 0;
+    z-index: 2;
+}
+
+/* Hover en escritorio */
+@media (hover: hover) {
+    .grid-item:hover .grid-item__image-front {
+        opacity: 0;
+        transform: scale(1.04);
+    }
+    .grid-item:hover .grid-item__image-back {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+/* Toque en móviles */
 .grid-item:active .grid-item__image-front,
 .grid-item.touched .grid-item__image-front {
     opacity: 0;
@@ -98,11 +111,17 @@
     transform: scale(1.04);
 }
 
-/* Responsive */
+/* ====================== RESPONSIVE ====================== */
 @media (min-width: 768px) {
-    .image-grid__item { flex: 0 0 calc(33.333% - 11px); height: 500px; }
+    .image-grid__item {
+        flex: 0 0 calc(33.333% - 11px);
+        height: 500px;
+    }
 }
 
 @media (min-width: 1024px) {
-    .image-grid__item { flex: 0 0 calc(25% - 12px); height: 520px; }
+    .image-grid__item {
+        flex: 0 0 calc(25% - 12px);
+        height: 520px;
+    }
 }
