@@ -4,29 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo - Apoxwear</title>
-    <link rel="stylesheet" href="style.css?v=8">
-    <style>
-        .back-link {
-            text-decoration: none;
-            color: #fff;
-            font-family: sans-serif;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        body { background-color: #000; margin: 0; color: white; }
-    </style>
+    
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
+    <!-- Botón Volver -->
     <div style="padding: 25px 40px; text-align: left;">
-        <a href="index.html" class="back-link"> ← Volver al inicio </a>
+        <a href="index.html" 
+           style="text-decoration: none; 
+                  color: #2F3032; 
+                  font-family: 'Open Sans', sans-serif; 
+                  font-weight: bold;">
+            ← Volver al inicio
+        </a>
     </div>
 
     <ul class="image-grid">
 
-        <!-- Tarjeta especial -->
-        <li class="image-grid__item">
+        <!-- Tarjeta Especial -->
+        <li class="image-grid__item special-item">
             <a href="#" class="grid-item special-grid-item">
                 <div class="special-content">
                     <div class="plus-icon">+</div>
@@ -35,22 +32,29 @@
             </a>
         </li>
 
-        <!-- Primera tarjeta -->
+        <!-- Diseños del catálogo -->
         <li class="image-grid__item">
             <a href="#" class="grid-item">
-                <div class="grid-item__image-front" style="background-image: url('assets/catalogo/1.png')"></div>
-                <div class="grid-item__image-back" style="background-image: url('assets/catalogo/1a.png')"></div>
+                <div class="grid-item__image-front" style="background-image: url('/assets/catalogo/1.png')"></div>
+                <div class="grid-item__image-back" style="background-image: url('/assets/catalogo/1a.png')"></div>
             </a>
         </li>
-
-        <!-- Segunda tarjeta -->
+       
         <li class="image-grid__item">
             <a href="#" class="grid-item">
-                <div class="grid-item__image-front" style="background-image: url('assets/catalogo/2.jpg')"></div>
-                <div class="grid-item__image-back" style="background-image: url('assets/catalogo/2a.jpg')"></div>
+                <div class="grid-item__image-front" style="background-image: url('/assets/catalogo/2.jpg')"></div>
+                <div class="grid-item__image-back" style="background-image: url('/assets/catalogo/2a.jpg')"></div>
+            </a>
+        </li>
+       
+        <li class="image-grid__item">
+            <a href="#" class="grid-item">
+                <div class="grid-item__image-front" style="background-image: url('/assets/catalogo/3.png')"></div>
+                <div class="grid-item__image-back" style="background-image: url('/assets/catalogo/3a.png')"></div>
             </a>
         </li>
 
     </ul>
+
 </body>
 </html>
